@@ -1,20 +1,44 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur-md shadow-sm">
-      <div className="mx-auto max-w-7xl flex items-center justify-between px-6 py-4">
+    <header className="fixed top-0 left-0 w-full z-50 bg-black/50 backdrop-blur-md shadow-sm">
+      <div className="mx-auto max-w-7xl flex items-center justify-between px-6 py-6">
 
         {/* Logo */}
-        <div>
-          <h1 className="text-2xl font-bold text-green-700">
-            Namaste Holidays
-          </h1>
-        </div>
+        <Link
+  href="/"
+  className="flex items-center gap-3 transition duration-300 hover:opacity-90"
+>
+  {/* Logo */}
+  <div className="relative h-14 w-14 overflow-hidden rounded-full bg-white shadow-lg ring-2 ring-green-100">
+    <Image
+      src="/images/logo.png"
+      alt="Namaste Holidays"
+      fill
+      priority
+      className="object-contain p-1"
+    />
+  </div>
+
+  {/* Company Name */}
+  <div className="leading-tight">
+    <h1 className="text-2xl font-extrabold tracking-tight">
+      <span className="text-green-700">Namaste</span>{" "}
+      <span className="text-green-700">Holidays</span>
+    </h1>
+
+    <p className="text-xs uppercase tracking-[0.2em] text-gray-500">
+      Kerala Taxi & Tour Services
+    </p>
+  </div>
+</Link>
 
         {/* Desktop Menu */}
         <nav className="hidden md:flex items-center gap-8">
